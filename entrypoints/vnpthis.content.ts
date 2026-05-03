@@ -15,23 +15,23 @@ export default defineContentScript({
     });
 
     const btn = document.createElement('button');
-    btn.textContent = 'Tạo QR';
+    btn.textContent = 'PFM Quét HIS';
     Object.assign(btn.style, {
       padding: '10px 20px',
       fontSize: '14px',
       fontWeight: '600',
       color: '#fff',
-      backgroundColor: '#2563eb',
+      backgroundColor: '#0f9a99',
       border: 'none',
       borderRadius: '8px',
       cursor: 'pointer',
       boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
     });
     btn.addEventListener('mouseenter', () => {
-      btn.style.backgroundColor = '#1d4ed8';
+      btn.style.backgroundColor = '#0a7f7e';
     });
     btn.addEventListener('mouseleave', () => {
-      btn.style.backgroundColor = '#2563eb';
+      btn.style.backgroundColor = '#0f9a99';
     });
 
     btn.addEventListener('click', () => {

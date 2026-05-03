@@ -16,8 +16,11 @@ function getElementValue(el: Element, getValue: FieldConfig['getValue'] = 'value
     if (val === '0' && /Chọn\s*(tỉnh|huyện|xa)/i.test(text)) return '';
     return text;
   }
-  if (getValue === 'text' || getValue === 'innerText') {
-    return (el as HTMLElement)[getValue]?.trim() ?? '';
+  if (getValue === 'text') {
+    return el.textContent?.trim() ?? '';
+  }
+  if (getValue === 'innerText') {
+    return (el as HTMLElement).innerText?.trim() ?? '';
   }
   const input = el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
   return input?.value?.trim() ?? '';
