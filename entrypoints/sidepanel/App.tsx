@@ -26,6 +26,13 @@ const EMPTY_DATA: ScannedData = {
   sobhyt: '',
 };
 
+function toUnicodeEscapedJson(input: unknown): string {
+  const json = JSON.stringify(input);
+  return json.replace(/[\u007f-\uffff]/g, (char) =>
+    `\\u${char.charCodeAt(0).toString(16).padStart(4, '0')}`,
+  );
+}
+
 function App() {
   const [clock, setClock] = useState(new Date());
   const [status, setStatus] = useState('Sẵn sàng quét dữ liệu bệnh nhân');
@@ -61,15 +68,19 @@ function App() {
   }
 
   async function createQr() {
-    const text = JSON.stringify(data);
     const hasData = Object.values(data).some((x) => x.trim() !== '');
     if (!hasData) {
       setStatus('Chưa có dữ liệu để tạo QR');
       return;
     }
-    const url = await QRCode.toDataURL(text, { width: 220, margin: 1 });
-    setQrDataUrl(url);
-    setStatus('Đã tạo QR từ thông tin quét');
+    try {
+      const escapedJson = toUnicodeEscapedJson(data);
+      const url = await QRCode.toDataURL(escapedJson, { width: 220, margin: 1 });
+      setQrDataUrl(url);
+      setStatus('Đã tạo QR (JSON Unicode Escape) từ thông tin quét');
+    } catch (error) {
+      setStatus(`Tạo QR thất bại: ${error instanceof Error ? error.message : 'Lỗi không xác định'}`);
+    }
   }
 
   function resetAll() {
