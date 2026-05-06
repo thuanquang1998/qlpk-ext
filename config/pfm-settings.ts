@@ -12,7 +12,7 @@ export const DEFAULT_PFM_SETTINGS: PfmSettings = {
   apiBaseUrl: 'http://localhost:3000',
   token: '',
   roomId: 'room_x_quang',
-  clinicTitle: 'Phòng khám PFM',
+  clinicTitle: 'Phòng khám Đa khoa ĐTS',
 };
 
 export interface SavedPatient {

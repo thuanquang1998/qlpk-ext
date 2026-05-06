@@ -24,10 +24,7 @@ export interface FieldConfig {
 export const VNPTHIS_FIELD_CONFIG: FieldConfig[] = [
   { key: 'hoten', label: 'Họ tên (*)', selector: '#hoten, input[name="hoten"]', getValue: 'value' },
   { key: 'socmt', label: 'CMT/CCCD', selector: '#socmt, input[name="socmt"]', getValue: 'value' },
-  { key: 'sobhyt', label: 'Số BHYT', selector: '#sobhyt, input[name="sobhyt"]', getValue: 'value' },
   { key: 'namsinh', label: 'Ngày sinh (*)', selector: '#namsinh, input[name="namsinh"]', getValue: 'value' },
-  { key: 'tuoi', label: 'Tuổi', selector: '#tuoi, input[name="tuoi"]', getValue: 'value' },
-  { key: 'sodt', label: 'Số ĐT', selector: '#sodt, input[name="sodt"]', getValue: 'value' },
   {
     key: 'diachi_cv30',
     label: 'Địa chỉ (CV30) (*)',
@@ -36,6 +33,8 @@ export const VNPTHIS_FIELD_CONFIG: FieldConfig[] = [
     getValue: 'selectedText',
   },
   { key: 'diachi', label: 'Địa chỉ (*)', selector: '#diachi, input[name="diachi"]', getValue: 'value' },
+  { key: 'mayte', label: 'Mã y tế', selector: '#mayte, input[name="mayte"]', getValue: 'value' },
+  { key: 'sobhyt', label: 'Số BHYT', selector: '#sobhyt, input[name="sobhyt"]', getValue: 'value' },
 ];
 
 /** URL pattern để content script chỉ chạy trên trang VNPT-HIS */

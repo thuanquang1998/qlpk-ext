@@ -2,9 +2,9 @@
 
 Extension hỗ trợ lễ tân:
 - Detect dữ liệu HIS từ trang VNPT-HIS
-- Hiển thị và chỉnh sửa nhanh trên sidepanel UI
-- Gọi API backend `POST /api/v1/patients` để lưu lượt khám
-- Search bệnh nhân đã thêm và xuất lại QR
+- Hiển thị thông tin bệnh nhân trên sidepanel UI
+- Tạo QR từ thông tin quét được
+- Reset thông tin và in QR
 
 ## Cấu hình
 
@@ -21,4 +21,4 @@ Giá trị mặc định:
 }
 ```
 
-Để save API thành công, cần cập nhật `token` trong `pfm-extension-settings` (token lấy từ backend `/api/auth/login`).
+Phiên bản hiện tại chưa gọi API backend; tập trung vào quét HIS + tạo/in QR.

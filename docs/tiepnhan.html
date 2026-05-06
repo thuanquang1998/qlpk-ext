@@ -238,7 +238,7 @@
     var em_noidangky = '';
     var cobaohiemyte;
     var tenform = "tn";
-    var ngaykham_hd = convertStr_MysqlDate("11/03/2026");
+    var ngaykham_hd = convertStr_MysqlDate("06/05/2026");
     var dialog_benhnhan_trung;
     var dialog;
     var mang_arr;
@@ -519,17 +519,17 @@
         $("#ngay_mien_cung_ct").datepicker("option", "dateFormat", "dd/mm/yy");
         $("#dstungay").datepicker();
         $("#dstungay").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#dstungay").val("11/03/2026");
+        $("#dstungay").val("06/05/2026");
         $("#dsdenngay").datepicker();
         $("#dsdenngay").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#dsdenngay").val("11/03/2026");
-        $("#ngaytiepnhan").val("11/03/2026");
+        $("#dsdenngay").val("06/05/2026");
+        $("#ngaytiepnhan").val("06/05/2026");
         $("#ngaygioithieu_gdyk").datepicker();
         $("#ngaygioithieu_gdyk").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#ngaygioithieu_gdyk").val("11/03/2026");
+        $("#ngaygioithieu_gdyk").val("06/05/2026");
         $("#ngaynhapvien").datepicker();
         $("#ngaynhapvien").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#ngaynhapvien").val("11/03/2026");
+        $("#ngaynhapvien").val("06/05/2026");
         $("#thoigian_du5namlientuc").datepicker();
         $("#thoigian_du5namlientuc").datepicker("option", "dateFormat", "dd/mm/yy");
 
@@ -1286,7 +1286,7 @@
                 dvtt: dvtt
             }).done(function (dt) {
                 $("#sobhyt").val(dt);
-                var diffDays = datediff(parseDate("11/03/2026"), parseDate($('#denngay').val()));
+                var diffDays = datediff(parseDate("06/05/2026"), parseDate($('#denngay').val()));
                 var diffDayss = diffDays + 1;
                 $(".songayconbhyt").text(diffDayss);
                 $("#songaybhyt").val(diffDayss);
@@ -1548,7 +1548,7 @@
             }
             if (namsinh.length == 10 && namsinh.indexOf("d") == "-1" && namsinh.indexOf("m") == "-1" && namsinh.indexOf("y") == "-1") {
                 var namsinharr = $("#namsinh").val().split('/');
-                var tuoi = getDate("11/03/2026").getFullYear() - namsinharr[2];
+                var tuoi = getDate("06/05/2026").getFullYear() - namsinharr[2];
                 if (tuoi < 0) {
                     jAlert("Năm sinh không đúng!", 'Cảnh báo', function () {
                         $("#namsinh").val(namsinharr[0] + '/' + namsinharr[1] + '/yyyy');
@@ -1556,13 +1556,13 @@
                     });
                     $("#namsinh").focus();
                 } else {
-                    var thang_kc = monthDiff(getDate(namsinh), getDate("11/03/2026")) - 1;
+                    var thang_kc = monthDiff(getDate(namsinh), getDate("06/05/2026")) - 1;
                     if (thang_kc < 0) {
                         jAlert("Năm sinh không đúng!", 'Cảnh báo', function () {
                         });
                         $("#namsinh").focus();
                     } else {
-                        if ((getDate("11/03/2026").getDate() - getDate(namsinh).getDate()) < 0) {
+                        if ((getDate("06/05/2026").getDate() - getDate(namsinh).getDate()) < 0) {
                             thang_kc -= 1;
                         }
                         if (thang_kc < 72) {
@@ -1581,7 +1581,7 @@
                             $("#thang").val("0");
                         }
                     }
-                    var ngay_kc = (getDate("11/03/2026") - getDate(namsinh)) / (1000 * 60 * 60 * 24);
+                    var ngay_kc = (getDate("06/05/2026") - getDate(namsinh)) / (1000 * 60 * 60 * 24);
                     if (ngay_kc > 0 && ngay_kc < 31) {
                         $("#ngay.width_7").val(Math.round(ngay_kc));
                         $("#thang").val("0");
@@ -1630,10 +1630,10 @@
                         var namsinharr = namsinh.split('/');
                         $("#tuoi").val(tuoi);
                         $("#thang").val(thang);
-                        var tuoi_tinh = getDate("11/03/2026").getFullYear() - namsinharr[2];
+                        var tuoi_tinh = getDate("06/05/2026").getFullYear() - namsinharr[2];
                         if (namsinh.indexOf("d") != "-1" || namsinh.indexOf("m") != "-1" || namsinh.indexOf("y") != "-1" || tuoi != tuoi_tinh) {
-                            var nam = getDate("11/03/2026").getFullYear() - parseInt(tuoi);
-                            var thang_agg = getDate("11/03/2026").getMonth() + 1;
+                            var nam = getDate("06/05/2026").getFullYear() - parseInt(tuoi);
+                            var thang_agg = getDate("06/05/2026").getMonth() + 1;
                             if (thang_agg - thang > 0) {
                                 thang = thang_agg - thang;
                             } else {
@@ -1649,7 +1649,7 @@
                 }
                 if ("0" == "1" && (tuoi == '' || tuoi == "0")) {
                     var thang = $("#thang").val();
-                    var tuoi_tinh = getDate("11/03/2026");
+                    var tuoi_tinh = getDate("06/05/2026");
                     tuoi_tinh.setMonth(tuoi_tinh.getMonth() - parseInt(thang));
                     $("#namsinh").val(tuoi_tinh.getDate() + '/' + (tuoi_tinh.getMonth() + 1) + '/' + tuoi_tinh.getFullYear());
                     $("#gioitinh").focus();
@@ -1669,7 +1669,7 @@
             var thang = $("#thang").val();
             var ngay = $("#ngay").val();
             if ("0" == "1" && (tuoi == '' || tuoi == "0") && (thang == '' || thang == "0")) {
-                var tuoi_tinh = getDate("11/03/2026");
+                var tuoi_tinh = getDate("06/05/2026");
                 if (ngay > -1) {
                     tuoi_tinh.setDate(tuoi_tinh.getDate() - parseInt(ngay));
                     $("#namsinh").val(tuoi_tinh.getDate() + '/' + (tuoi_tinh.getMonth() + 1) + '/' + tuoi_tinh.getFullYear());
@@ -2474,7 +2474,7 @@
         $("#dungtuyen").prop('checked', true);
         $("#sobhyt").keyup(function (evt) {
             var sobhyt = $("#sobhyt").val().trim().toUpperCase();
-            var diffDays = datediff(parseDate("11/03/2026"), parseDate($('#denngay').val()));
+            var diffDays = datediff(parseDate("06/05/2026"), parseDate($('#denngay').val()));
             var diffDayss = diffDays + 1;
             $(".songayconbhyt").text(diffDayss);
             $("#songaybhyt").val(diffDayss);
@@ -2669,7 +2669,7 @@
                     ;
                 });
             }
-            var diffDays = datediff(parseDate("11/03/2026"), parseDate($('#denngay').val()));
+            var diffDays = datediff(parseDate("06/05/2026"), parseDate($('#denngay').val()));
             var diffDayss = diffDays + 1;
             $(".songayconbhyt").text(diffDayss);
             $("#songaybhyt").val(diffDayss);
@@ -2717,7 +2717,7 @@
                 $("#noidangky").focus();
                 evt.preventDefault();
             }
-            var diffDays = datediff(parseDate("11/03/2026"), parseDate($('#denngay').val()));
+            var diffDays = datediff(parseDate("06/05/2026"), parseDate($('#denngay').val()));
             var diffDayss = diffDays + 1;
             $(".songayconbhyt").text(isNaN(diffDayss) ? "0" : diffDayss);
             $("#songaybhyt").val(diffDayss);
@@ -2803,7 +2803,7 @@
                         $("#namsinh").change();
                         $("#cbgioitinh").change();
                         $("#noidangky").keyup();
-                        var diffDays = datediff(parseDate("11/03/2026"), parseDate($('#denngay').val()));
+                        var diffDays = datediff(parseDate("06/05/2026"), parseDate($('#denngay').val()));
                         var diffDayss = diffDays + 1;
                         $(".songayconbhyt").text(diffDayss);
                         $("#songaybhyt").val(diffDayss);
@@ -3050,9 +3050,9 @@
                 } else {
                     var namsinh = $("#namsinh").val();
                     var namsinharr = namsinh.split('/');
-                    var tuoi_tinh = getDate("11/03/2026").getFullYear() - namsinharr[2];
+                    var tuoi_tinh = getDate("06/05/2026").getFullYear() - namsinharr[2];
                     if (namsinh.indexOf("d") != "-1" || namsinh.indexOf("m") != "-1" || namsinh.indexOf("y") != "-1" || tuoi != tuoi_tinh) {
-                        var nam = getDate("11/03/2026").getFullYear() - parseInt(tuoi);
+                        var nam = getDate("06/05/2026").getFullYear() - parseInt(tuoi);
                         if (dvtt.substring(0, 2) == "89") {
                             if ($("#namsinh").val() == '') {
                                 $("#namsinh").val("01/01/" + nam);
@@ -3257,7 +3257,7 @@
             dialog_benhnhan_trung.close();
         });
         $("#huy_themmoi").click(function (evt) {
-            var today = getDate("11/03/2026");
+            var today = getDate("06/05/2026");
             var ngayhethan = getDate($("#denngay").val());
             if (ngayhethan < today) {
                 if (($("#sobhyt").val().indexOf("TE") == "0") && (parseInt($("#tuoi").val()) <= 6) && (today.getMonth() < 8)) {
@@ -3509,7 +3509,7 @@
                         }
                     });
                 }).done(function () {
-                    var today = getDate("11/03/2026");
+                    var today = getDate("06/05/2026");
                     var ngayhethan = getDate($("#denngay").val());
                     if (ngayhethan < today) {
                         if (($("#sobhyt").val().indexOf("TE") == "0") && (parseInt($("#tuoi").val()) <= 6) && (today.getMonth() < 8)) {
@@ -3843,7 +3843,7 @@
                                                                         }
                                                                     });
                                                                 } else {
-                                                                    var today = getDate("11/03/2026");
+                                                                    var today = getDate("06/05/2026");
                                                                     var ngayhethan = getDate($("#denngay").val());
                                                                     if (ngayhethan < today) {
                                                                         if (($("#sobhyt").val().indexOf("TE") == "0") && (parseInt($("#tuoi").val()) <= 6) && (today.getMonth() < 8)) {
@@ -4050,7 +4050,7 @@
                                                                                 }
                                                                             });
                                                                         } else {
-                                                                            var today = getDate("11/03/2026");
+                                                                            var today = getDate("06/05/2026");
                                                                             var ngayhethan = getDate($("#denngay").val());
                                                                             if (ngayhethan < today) {
                                                                                 if (($("#sobhyt").val().indexOf("TE") == "0") && (parseInt($("#tuoi").val()) <= 6) && (today.getMonth() < 8)) {
@@ -4254,7 +4254,7 @@
                                                                 }
                                                             });
                                                         } else {
-                                                            var today = getDate("11/03/2026");
+                                                            var today = getDate("06/05/2026");
                                                             var ngayhethan = getDate($("#denngay").val());
                                                             if (ngayhethan < today) {
                                                                 if (($("#sobhyt").val().indexOf("TE") == "0") && (parseInt($("#tuoi").val()) <= 6) && (today.getMonth() < 8)) {
@@ -4488,7 +4488,7 @@
                                                                 }
                                                             });
                                                         } else {
-                                                            var today = getDate("11/03/2026");
+                                                            var today = getDate("06/05/2026");
                                                             var ngayhethan = getDate($("#denngay").val());
                                                             if (ngayhethan < today) {
                                                                 if (($("#sobhyt").val().indexOf("TE") == "0") && (parseInt($("#tuoi").val()) <= 6) && (today.getMonth() < 8)) {
@@ -4690,7 +4690,7 @@
                                                                         }
                                                                     });
                                                                 } else {
-                                                                    var today = getDate("11/03/2026");
+                                                                    var today = getDate("06/05/2026");
                                                                     var ngayhethan = getDate($("#denngay").val());
                                                                     if (ngayhethan < today) {
                                                                         if (($("#sobhyt").val().indexOf("TE") == "0") && (parseInt($("#tuoi").val()) <= 6) && (today.getMonth() < 8)) {
@@ -4890,7 +4890,7 @@
                                                         }
                                                     });
                                                 } else {
-                                                    var today = getDate("11/03/2026");
+                                                    var today = getDate("06/05/2026");
                                                     var ngayhethan = getDate($("#denngay").val());
                                                     if (ngayhethan < today) {
                                                         if (($("#sobhyt").val().indexOf("TE") == "0") && (parseInt($("#tuoi").val()) <= 6) && (today.getMonth() < 8)) {
@@ -5812,7 +5812,7 @@
                 return false;
             }
             if ($("#sobhyt").val() != "" && $("#sobhyt").val().length == 15 && ($("#sobhyt").val().indexOf("_") < 0)) {
-                var today = getDate("11/03/2026");
+                var today = getDate("06/05/2026");
                 var ngaybatdau = getDate($("#tungay").val());
                 var ngayhethan = getDate($("#denngay").val());
                 var chuoind = $("#sobhyt").val().substring(0, 3);
@@ -7062,8 +7062,8 @@
                                     $("#cobhytdtck").attr('checked', false);
                                 $("#gioitinhdtck").val(ret.GIOI_TINH);
                                 $("#diachidtck").val(ret.DIA_CHI);
-                                $("#tungaydtck").val("11/03/2026");
-                                $("#denngaydtck").val("11/03/2026");
+                                $("#tungaydtck").val("06/05/2026");
+                                $("#denngaydtck").val("06/05/2026");
                                 $("#sovaovien_ck").val(ret.sovaovien);
                                 cobaohiemyte = ret.CO_BAO_HIEM.toString();
                                 var arr = [idtiepnhan, hoten, tuoi, tile, phieu, mayte, maphong, tenphong, sovaovien];
@@ -7182,7 +7182,7 @@
                         $.each(result, function (i, field) {
                             timkiembenhnhan(field);
                             $("#sobhyt").val(field.SO_THE_BAOHIEM_YTE);
-                            var diffDays = datediff(parseDate("11/03/2026"), parseDate($('#denngay').val()));
+                            var diffDays = datediff(parseDate("06/05/2026"), parseDate($('#denngay').val()));
                             var diffDayss = diffDays + 1;
                             $(".songayconbhyt").text(diffDayss);
                             $("#songaybhyt").val(diffDayss);
@@ -7390,8 +7390,8 @@
         $("#tungay_bn_ctden").datepicker("option", "dateFormat", "dd/mm/yy");
         $("#denngay_bn_ctden").datepicker();
         $("#denngay_bn_ctden").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#tungay_bn_ctden").val("11/03/2026");
-        $("#denngay_bn_ctden").val("11/03/2026");
+        $("#tungay_bn_ctden").val("06/05/2026");
+        $("#denngay_bn_ctden").val("06/05/2026");
         dialog_dschuyentuyenden = $("#div_danhsachbenhnhanchuyenden").dialog({
             autoOpen: false,
             //modal: true,
@@ -9815,12 +9815,12 @@
         $("#nghenghiep").val($("#cbnghenghiep").val());
         $("#dantoc").val($("#cbdantoc").val());
         $("#tlmiengiam").val("0");
-        $("#tungay").val("11/03/2026");
-        $("#denngay").val("11/03/2026");
+        $("#tungay").val("06/05/2026");
+        $("#denngay").val("06/05/2026");
         $("#dichvu").val($("#cbdichvu").val());
         var dvtt = "52207";
         if (dvtt.search("94") == 0) {
-            var namhientai = getDate("11/03/2026").getFullYear();
+            var namhientai = getDate("06/05/2026").getFullYear();
             $("#tungay").val("01/01/" + namhientai);
             $("#denngay").val("31/12/" + namhientai);
         }
@@ -9992,7 +9992,7 @@
         $("#mienphi").prop('checked', false);
         $("#chinamsinh").prop('checked', false);
         $("#noidangky").val(dvtt);
-        $("#ngaytiepnhan").val("11/03/2026");
+        $("#ngaytiepnhan").val("06/05/2026");
         var url = "laynoidangkykcb?noidangky=" + $("#noidangky").val();
         $.ajax({
             url: url
@@ -10008,7 +10008,7 @@
             $("#cbdichvu").val("1");
             $("#cbphongkham").val("1");
             if ("1" != $("#cbphongkham").val()) {
-                $("#cbphongkham").val("9716701");
+                $("#cbphongkham").val("9716697");
                 
                 if ($("#cbphongkham").val() == "9716697") {
                     $("#phongkham").val("1");
@@ -10049,7 +10049,7 @@
             }
         }
         $("#dichvu").val($("#cbdichvu").val());
-        if ("9716701" == "80") {
+        if ("9716697" == "80") {
             $("#cbphongkham").val("80");
             
             if ($("#cbphongkham").val() == "9716697") {
@@ -10091,7 +10091,7 @@
             $("#dichvu").val("229");
         }
         if (tenform == "cc") {
-            $("#cbphongkham").val("9716701");
+            $("#cbphongkham").val("9716697");
             
             if ($("#cbphongkham").val() == "9716697") {
                 $("#phongkham").val("1");
@@ -10152,8 +10152,8 @@
         $('#noilamviec_gdyk').val("");
         $('#tochucgt_gdyk').val("");
         $('#sogiaygt_gdyk').val("");
-        $('#ngaygioithieu_gdyk').val("11/03/2026");
-        $('#ngaycapcmt').val("11/03/2026");
+        $('#ngaygioithieu_gdyk').val("06/05/2026");
+        $('#ngaycapcmt').val("06/05/2026");
         $('#noicapcmt').val("");
         $('#sdtnguoilienhe').val("");
         $('#soBAMT').val("");
@@ -11422,8 +11422,8 @@
                     $("#doituongthe").val("");
                     $frm.find("input[name='chuoinhandang']").val("");
                     $frm.find("input[name='tlmiengiam']").val("0");
-                    $frm.find("input[name='tungay']").val("11/03/2026");
-                    $frm.find("input[name='denngay']").val("11/03/2026");
+                    $frm.find("input[name='tungay']").val("06/05/2026");
+                    $frm.find("input[name='denngay']").val("06/05/2026");
                     $frm.find("input[name='noidangky']").val(dvtt);
                     var url = "laynoidangkykcb?noidangky=" + dvtt;
                     $.ajax({
@@ -12641,7 +12641,7 @@
             //
             if ("0" == "1") {
                 //
-                var phong = "9716701";
+                var phong = "9716697";
                 
                 if (phong == "9716697") {
                     if ("36" == "0") {
@@ -13106,8 +13106,8 @@
                     $("#cobhytdtck").attr('checked', false);
                 $("#gioitinhdtck").val(ret.GIOI_TINH);
                 $("#diachidtck").val(ret.DIA_CHI);
-                $("#tungaydtck").val("11/03/2026");
-                $("#denngaydtck").val("11/03/2026");
+                $("#tungaydtck").val("06/05/2026");
+                $("#denngaydtck").val("06/05/2026");
                 $("#sovaovien_ck").val(ret.SOVAOVIEN);
                 cobaohiemyte = ret.CO_BAO_HIEM.toString();
                 var arr = [idtiepnhan, hoten, tuoi, tile, phieu, mayte, maphong, tenphong, sovaovien];
@@ -13425,10 +13425,10 @@
         $("#tungay").datepicker("option", "dateFormat", "dd/mm/yy");
         $("#denngay").datepicker();
         $("#denngay").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#ngaytiepnhan").val("11/03/2026");
+        $("#ngaytiepnhan").val("06/05/2026");
         $("#ngaycapcmt").datepicker();
         $("#ngaycapcmt").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#ngaycapcmt").val("11/03/2026");
+        $("#ngaycapcmt").val("06/05/2026");
 
         $("#gio-sinh-cv130").inputmask("hh:mm:ss", {
             placeholder: "hh:mm:ss",
@@ -13466,12 +13466,12 @@
         $("#nghenghiep").val($("#cbnghenghiep").val());
         $("#dantoc").val($("#cbdantoc").val());
         $("#tlmiengiam").val("0");
-        $("#tungay").val("11/03/2026");
-        $("#denngay").val("11/03/2026");
+        $("#tungay").val("06/05/2026");
+        $("#denngay").val("06/05/2026");
         $("#dichvu").val($("#cbdichvu").val());
         var dvtt = "52207";
         if (dvtt.search("94") == 0) {
-            var namhientai = getDate("11/03/2026").getFullYear();
+            var namhientai = getDate("06/05/2026").getFullYear();
             $("#tungay").val("01/01/" + namhientai);
             $("#denngay").val("31/12/" + namhientai);
         }
@@ -13689,10 +13689,10 @@
         });
         $("#hentaikhamtungay").datepicker();
         $("#hentaikhamtungay").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#hentaikhamtungay").val("11/03/2026");
+        $("#hentaikhamtungay").val("06/05/2026");
         $("#hentaikhamdenngay").datepicker();
         $("#hentaikhamdenngay").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#hentaikhamdenngay").val("11/03/2026");
+        $("#hentaikhamdenngay").val("06/05/2026");
         $("#danhsachhentaikham_tab").hide();
         if ("0" == 1) {
             $("#danhsachhentaikham_tab").show();
@@ -13801,7 +13801,7 @@
         });
         /*Danh sach đath lịch tổng đài kgg*/
         $("#list_datlichkham_kgg").jqGrid({
-            url: 'laydanhsachbenhnhandatlich_kgg?ngay=' + '11/03/2026',
+            url: 'laydanhsachbenhnhandatlich_kgg?ngay=' + '06/05/2026',
             //   url: 'laydanhsachbenhnhandatlich_kgg?ngay=26/07/2019',
             datatype: "json",
             loadonce: false,
@@ -13857,7 +13857,7 @@
             autoencode: true,
             ondblClickRow: function (id) {
                 var ret = $("#list_datlichkham_kgg").jqGrid('getRowData', id);
-                if("11/03/2026"<=ret.NGAYBOOK){
+                if("06/05/2026"<=ret.NGAYBOOK){
                     if (id) {
 
                         idnhankhau_ghepnk = '';
@@ -13916,7 +13916,7 @@
                         $("#namsinh").keypress();
                         var namsinh = $("#namsinh").val();
                         var namsinharr = namsinh.split('/');
-                        var tuoi_tinh = getDate("11/03/2026").getFullYear() - namsinharr[2];
+                        var tuoi_tinh = getDate("06/05/2026").getFullYear() - namsinharr[2];
                         if(tuoi_tinh>=6){
                             $("#tuoi").val(tuoi_tinh);
                             $("#thang").val(0);
@@ -13924,7 +13924,7 @@
                         else{
                             $("#tuoi").val(0);
                             var thang_tinh=tuoi_tinh*12;
-                            thang_tinh=thang_tinh+(getDate("11/03/2026").getMonth()-namsinharr[1]);
+                            thang_tinh=thang_tinh+(getDate("06/05/2026").getMonth()-namsinharr[1]);
                             $("#thang").val(thang_tinh);
                         }
                         //    $("namsinh").keypress();
@@ -14117,11 +14117,11 @@
         $("#lskb_denngay").datepicker();
         $("#lskb_denngay").datepicker("option", "dateFormat", "dd/mm/yy");
         $("#lskb_giaiquyet").val($("#lskb_cbgiaiquyet").val());
-        var ngayhientai = getDate("11/03/2026");
+        var ngayhientai = getDate("06/05/2026");
         var miliseconds = ngayhientai.getTime() - 182 * 86400000;
         $("#lskb_tungay").val(convertDate_Str(new Date(miliseconds)));
-        //$("#lskb_tungay").val("01/03/2026");
-        $("#lskb_denngay").val("11/03/2026");
+        //$("#lskb_tungay").val("01/05/2026");
+        $("#lskb_denngay").val("06/05/2026");
         $("#lskb_tabs").tabs();
         $("#lsk_ngoaitru").val('0');
         //begin HGI Ngân 03/05/2017
@@ -15718,7 +15718,7 @@
         var arr = duongdan.split("/");
         loadDanhSachTinhActive("52207", arr[2]);
         var url = "kiemtra_phanquyen_hethong";
-        var maphongban = "522072";
+        var maphongban = "52207";
         $.post(url, {duongdan: arr[2], manhanvien: "2002640", dvtt: "52207"}).done(function (data) {
             if (data == "0" && arr[2] != "thongtinnhanvien") {
                 $(location).attr('href', 'thongtinnhanvien');
@@ -17599,11 +17599,15 @@
                                                                         
                                                                             <option value="2002617"  >BS. Dương Văn Hóa</option>
                                                                         
-                                                                            <option value="2003401"  >DDDH. Lương Thị Ánh Trúc</option>
+                                                                            <option value="2002586"  >DDDH. Trương Bảo Thắm</option>
+                                                                        
+                                                                            <option value="2003401"  >DDDH. Mỹ Tâm</option>
                                                                         
                                                                             <option value="2003400"  >DDDH. Nguyễn Thị Tuyết Nhung</option>
                                                                         
                                                                             <option value="2003340"  >DDDH. Nguyễn Thị Thu Thanh</option>
+                                                                        
+                                                                            <option value="2002609"  >DDDH. Phan Thị Như</option>
                                                                         
                                                                             <option value="2002740"  >DDDH. Văn Thị Thanh Thúy</option>
                                                                         
@@ -17653,8 +17657,6 @@
                                                                         
                                                                             <option value="2003840"  >CNDD. Mai Thị Thanh Liêm</option>
                                                                         
-                                                                            <option value="2002586"  >CNDD. Trương Bảo Thắm</option>
-                                                                        
                                                                             <option value="2003860"  >CNDD. Mai Nga</option>
                                                                         
                                                                             <option value="2002588"  >CNDD. Nguyễn Vân Anh</option>
@@ -17662,10 +17664,6 @@
                                                                             <option value="2002640"  selected  >CNDD. Quản trị phòng khám</option>
                                                                         
                                                                             <option value="2002608"  >CNDD. Hồ Thị Hồng Yến</option>
-                                                                        
-                                                                            <option value="2002609"  >CNDD. Phan Thị Như</option>
-                                                                        
-                                                                            <option value="2003520"  >CNDD. Phan Thị Tâm</option>
                                                                         
                                                                             <option value="2003040"  >KTVXQ. Trịnh Thị Diễn</option>
                                                                         
@@ -17928,11 +17926,15 @@
                                                                         
                                                                             <option value="2002617"  >BS. Dương Văn Hóa</option>
                                                                         
-                                                                            <option value="2003401"  >DDDH. Lương Thị Ánh Trúc</option>
+                                                                            <option value="2002586"  >DDDH. Trương Bảo Thắm</option>
+                                                                        
+                                                                            <option value="2003401"  >DDDH. Mỹ Tâm</option>
                                                                         
                                                                             <option value="2003400"  >DDDH. Nguyễn Thị Tuyết Nhung</option>
                                                                         
                                                                             <option value="2003340"  >DDDH. Nguyễn Thị Thu Thanh</option>
+                                                                        
+                                                                            <option value="2002609"  >DDDH. Phan Thị Như</option>
                                                                         
                                                                             <option value="2002740"  >DDDH. Văn Thị Thanh Thúy</option>
                                                                         
@@ -17982,8 +17984,6 @@
                                                                         
                                                                             <option value="2003840"  >CNDD. Mai Thị Thanh Liêm</option>
                                                                         
-                                                                            <option value="2002586"  >CNDD. Trương Bảo Thắm</option>
-                                                                        
                                                                             <option value="2003860"  >CNDD. Mai Nga</option>
                                                                         
                                                                             <option value="2002588"  >CNDD. Nguyễn Vân Anh</option>
@@ -17991,10 +17991,6 @@
                                                                             <option value="2002640"  selected  >CNDD. Quản trị phòng khám</option>
                                                                         
                                                                             <option value="2002608"  >CNDD. Hồ Thị Hồng Yến</option>
-                                                                        
-                                                                            <option value="2002609"  >CNDD. Phan Thị Như</option>
-                                                                        
-                                                                            <option value="2003520"  >CNDD. Phan Thị Tâm</option>
                                                                         
                                                                             <option value="2003040"  >KTVXQ. Trịnh Thị Diễn</option>
                                                                         
@@ -18284,11 +18280,15 @@
                                                                         
                                                                             <option value="2002617"  >BS. Dương Văn Hóa</option>
                                                                         
-                                                                            <option value="2003401"  >DDDH. Lương Thị Ánh Trúc</option>
+                                                                            <option value="2002586"  >DDDH. Trương Bảo Thắm</option>
+                                                                        
+                                                                            <option value="2003401"  >DDDH. Mỹ Tâm</option>
                                                                         
                                                                             <option value="2003400"  >DDDH. Nguyễn Thị Tuyết Nhung</option>
                                                                         
                                                                             <option value="2003340"  >DDDH. Nguyễn Thị Thu Thanh</option>
+                                                                        
+                                                                            <option value="2002609"  >DDDH. Phan Thị Như</option>
                                                                         
                                                                             <option value="2002740"  >DDDH. Văn Thị Thanh Thúy</option>
                                                                         
@@ -18338,8 +18338,6 @@
                                                                         
                                                                             <option value="2003840"  >CNDD. Mai Thị Thanh Liêm</option>
                                                                         
-                                                                            <option value="2002586"  >CNDD. Trương Bảo Thắm</option>
-                                                                        
                                                                             <option value="2003860"  >CNDD. Mai Nga</option>
                                                                         
                                                                             <option value="2002588"  >CNDD. Nguyễn Vân Anh</option>
@@ -18347,10 +18345,6 @@
                                                                             <option value="2002640"  selected  >CNDD. Quản trị phòng khám</option>
                                                                         
                                                                             <option value="2002608"  >CNDD. Hồ Thị Hồng Yến</option>
-                                                                        
-                                                                            <option value="2002609"  >CNDD. Phan Thị Như</option>
-                                                                        
-                                                                            <option value="2003520"  >CNDD. Phan Thị Tâm</option>
                                                                         
                                                                             <option value="2003040"  >KTVXQ. Trịnh Thị Diễn</option>
                                                                         
@@ -18881,7 +18875,7 @@
             var month = currentTime.getMonth() + 1
             var day = currentTime.getDate()
             var year = currentTime.getFullYear()*/
-            var ngayht = "11/03/2026";
+            var ngayht = "06/05/2026";
             var idtiepnhan = $("#idtiepnhan").val();
             var sovaovien = $("#sovaovien").val();
             var mabenhnhan = $("#mayte").val();
@@ -19208,7 +19202,7 @@
     $(function () {
         $("#ngayphuthu_agg").datepicker();
         $("#ngayphuthu_agg").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#ngayphuthu_agg").val("11/03/2026");
+        $("#ngayphuthu_agg").val("06/05/2026");
         $("#tab_phuthu_agg").tabs();
         phuthu_agg_dialog = $("#phuthu_agg_modal").dialog({
             autoOpen: false,
@@ -19378,7 +19372,7 @@
             var mabenhnhan = $("#mayte").val();
             var sovaovien = $("#sovaovien").val();
             var ngaychidinh = $("#ngayphuthu_agg").val();
-            var arr = [makhambenh, "52207", "522072", mabenhnhan, sovaovien, ngaychidinh];
+            var arr = [makhambenh, "52207", "52207", mabenhnhan, sovaovien, ngaychidinh];
             var url = "ngoaitru_phuthu_agg_insert_bangcha";
             $.post(url, {url: convertArray(arr)}).done(function (data) {
                 if (data.SAISOT.toString() == "1") {
@@ -19736,7 +19730,7 @@
                     if (val_sl == undefined)
                         val_sl = ret.GIA_TRI;
                     var arr = ["52207", dialogData.SOVAOVIEN, dialogData.SOVAOVIEN_DT ? dialogData.SOVAOVIEN_DT : 0, dialogData.STT_DIEUTRI ? dialogData.STT_DIEUTRI : 0, dialogData.NOI_TRU ? 1 : 0, madinhmuc, ret.DINHMUC_MA_NHOM_VATTU, val_sl, ret.GIA_TRI_DINHMUC,
-                        makhovattu, ngay, 2002640, 9716701, 522072, soPhieu, maDV];
+                        makhovattu, ngay, 2002640, 9716697, 52207, soPhieu, maDV];
                     arr_all.push(convertArray(arr));
                 }
                 $.post(url1, {
@@ -19935,7 +19929,7 @@
                         makhokhoaphong = 0;
 
                         var url_kho = "noitru_kiemtra_tututhuoc";
-                        $.post(url_kho, {dvtt: "52207", maphongban: "522072", makho: makhovattu})
+                        $.post(url_kho, {dvtt: "52207", maphongban: "52207", makho: makhovattu})
                             .done(function (data) {
                                 tu_tuthuoc = data;
                                 if (tt_pcshientai > 1) {
@@ -19957,7 +19951,7 @@
                                         nghiepvu = "noitru_toadichvu";
                                     }
                                     var arr = ["52207", matoathuoc, makhovattu, mavattu, tenthuongmai, tengoc, dvt, nghiepvu, sl, sl, dongia_bv, dongia_bh, thanhtien, songay, sang, trua,
-                                        chieu, toi, cachdung, "2002640", dangthuoc, dialogData.STT_DIEUTRI, dialogData.STT_BENHAN, dialogData.STT_DOTDIEUTRI, tu_tuthuoc, cobhyt, dialogData.MABENHNHAN, sophieuthanhtoan, "522072", dialogData.SOVAOVIEN, dialogData.SOVAOVIEN_DT];
+                                        chieu, toi, cachdung, "2002640", dangthuoc, dialogData.STT_DIEUTRI, dialogData.STT_BENHAN, dialogData.STT_DOTDIEUTRI, tu_tuthuoc, cobhyt, dialogData.MABENHNHAN, sophieuthanhtoan, "52207", dialogData.SOVAOVIEN, dialogData.SOVAOVIEN_DT];
 
                                     $.post(url, {
                                         url: convertArray(arr)
@@ -19998,7 +19992,7 @@
                     else {
                         // START VLG - cập nhật báo cáo 'thuocvattucls'
                         var arr = [matoathuoc, mavattu, encodeURIComponent(tenthuongmai), encodeURIComponent(tengoc), soluong, dongia_bv, dongia_bh, songay, sang, trua,
-                            chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, idtiepnhan, dialogData.MAKHAMBENH, sovaovien, "9716701", "0", "9716701", "0"];
+                            chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, idtiepnhan, dialogData.MAKHAMBENH, sovaovien, "9716697", "0", "9716697", "0"];
                         // END VLG - cập nhật báo cáo 'thuocvattucls'
                         var url = "themtoathuocngoaitru_giamtai?dongia_bv=" + parseFloat(dongia_bv) + "&dongia_bh=" + parseFloat(dongia_bh) + "&thanhtien=" + parseFloat(thanhtien) + "&sang=" + sang + "&trua=" + trua + "&chieu=" + chieu + "&toi=" + toi + "&url=" + convertArray(arr) + "&nghiepvu=ngoaitru_toadichvu&kho=" + $("#dinhmuc_cb_khovattu").val() + "&ngaykb=" + ngaykham_hd;
                         ;
@@ -20142,7 +20136,7 @@
                                         
                                     
                                         
-                                            <option value="52207" >Khoa Nội tổng hợp</option>
+                                            <option value="52207"  selected >Khoa Nội tổng hợp</option>
                                         
                                     
                                         
@@ -20174,7 +20168,7 @@
                                         
                                     
                                         
-                                            <option value="522072"  selected >Khoa Chẩn đoán hình ảnh</option>
+                                            <option value="522072" >Khoa Chẩn đoán hình ảnh</option>
                                         
                                     
                                 </select>
@@ -20240,11 +20234,15 @@
                                         
                                             <option value="2002617"  >BS. Dương Văn Hóa</option>
                                         
-                                            <option value="2003401"  >DDDH. Lương Thị Ánh Trúc</option>
+                                            <option value="2002586"  >DDDH. Trương Bảo Thắm</option>
+                                        
+                                            <option value="2003401"  >DDDH. Mỹ Tâm</option>
                                         
                                             <option value="2003400"  >DDDH. Nguyễn Thị Tuyết Nhung</option>
                                         
                                             <option value="2003340"  >DDDH. Nguyễn Thị Thu Thanh</option>
+                                        
+                                            <option value="2002609"  >DDDH. Phan Thị Như</option>
                                         
                                             <option value="2002740"  >DDDH. Văn Thị Thanh Thúy</option>
                                         
@@ -20294,8 +20292,6 @@
                                         
                                             <option value="2003840"  >CNDD. Mai Thị Thanh Liêm</option>
                                         
-                                            <option value="2002586"  >CNDD. Trương Bảo Thắm</option>
-                                        
                                             <option value="2003860"  >CNDD. Mai Nga</option>
                                         
                                             <option value="2002588"  >CNDD. Nguyễn Vân Anh</option>
@@ -20303,10 +20299,6 @@
                                             <option value="2002640"  selected  >CNDD. Quản trị phòng khám</option>
                                         
                                             <option value="2002608"  >CNDD. Hồ Thị Hồng Yến</option>
-                                        
-                                            <option value="2002609"  >CNDD. Phan Thị Như</option>
-                                        
-                                            <option value="2003520"  >CNDD. Phan Thị Tâm</option>
                                         
                                             <option value="2003040"  >KTVXQ. Trịnh Thị Diễn</option>
                                         
@@ -20568,28 +20560,28 @@
         // Dang Phu Qui
         $("#ngaychidinhttpt").datepicker();
         $("#ngaychidinhttpt").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#ngaychidinhttpt").val("11/03/2026");
+        $("#ngaychidinhttpt").val("06/05/2026");
         $('#giochidinhttpt').datetimepicker({
             dateFormat: '',
             timeFormat: 'hh:mm:ss'
         });
-        $("#giochidinhttpt").val("20:03:24");
+        $("#giochidinhttpt").val("19:30:28");
         $("#ngaychidinhxn").datepicker();
         $("#ngaychidinhxn").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#ngaychidinhxn").val("11/03/2026");
+        $("#ngaychidinhxn").val("06/05/2026");
         $('#giochidinhxn').datetimepicker({
             dateFormat: '',
             timeFormat: 'hh:mm:ss'
         });
-        $("#giochidinhxn").val("20:03:24");
+        $("#giochidinhxn").val("19:30:28");
         $("#ngaycdha").datepicker();
         $("#ngaycdha").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#ngaycdha").val("11/03/2026");
+        $("#ngaycdha").val("06/05/2026");
         $('#giocd_cdha').datetimepicker({
             dateFormat: '',
             timeFormat: 'hh:mm:ss'
         });
-        $("#giocd_cdha").val("20:03:24");
+        $("#giocd_cdha").val("19:30:28");
         $("#tungaydtck").datepicker();
         $("#tungaydtck").datepicker("option", "dateFormat", "dd/mm/yy");
         $("#denngaydtck").datepicker();
@@ -21867,7 +21859,7 @@
                 var icd = $("#icd").val();
                 var cbicd = $("#cbicd").val();
                 var trieuchungls = $("#trieuchungls").val();
-                var phongban = "522072";
+                var phongban = "52207";
                 //alert(makhambenh+"/"+ma_yt);
                 var arr = [matoathuoc_dv, hoten, tuoi, thangtuoi,
                     tlmiengiam, bhyt, gioitinh_nam, gioitinh_nu
@@ -22573,7 +22565,7 @@
                         else {
                             // START VLG - cập nhật báo cáo 'thuocvattucls'
                             var arr = [matoathuoc, mavattu, encodeURIComponent(tenthuongmai), encodeURIComponent(tengoc), soluong, dongia_bv, dongia_bh, songay, sang, trua,
-                                chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, idtiepnhan, makhambenh, sovaovien, "9716701", "", $("#phongkhambenh").val(), "0"];
+                                chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, idtiepnhan, makhambenh, sovaovien, "9716697", "", $("#phongkhambenh").val(), "0"];
                             // END VLG - cập nhật báo cáo 'thuocvattucls'
                             var url = "themtoathuocngoaitru_giamtai?dongia_bv=" + parseFloat(dongia_bv) + "&dongia_bh=" + parseFloat(dongia_bh) + "&thanhtien=" + parseFloat(thanhtien) + "&sang=" + sang + "&trua=" + trua + "&chieu=" + chieu + "&toi=" + toi + "&url=" + convertArray(arr) + "&nghiepvu=ngoaitru_toadichvu&kho=" + $("#kho_dv").val() + "&ngaykb=" + ngaykham_hd + "&sophieu_ttpt=" + $("#sophieuttpt").val() + "&ma_ttpt=" + ret.MA_DV;
                             ;
@@ -22646,7 +22638,7 @@
                     else {
                         // START VLG - cập nhật báo cáo 'thuocvattucls'
                         var arr = [matoathuoc, mavattu, encodeURIComponent(tenthuongmai), encodeURIComponent(tengoc), soluong, dongia_bv, dongia_bh, songay, sang, trua,
-                            chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, idtiepnhan, makhambenh, sovaovien, "9716701", "", $("#phongkhambenh").val(), "0"];
+                            chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, idtiepnhan, makhambenh, sovaovien, "9716697", "", $("#phongkhambenh").val(), "0"];
                         // END VLG - cập nhật báo cáo 'thuocvattucls'
                         var url = "themtoathuocngoaitru_giamtai?dongia_bv=" + parseFloat(dongia_bv) + "&dongia_bh=" + parseFloat(dongia_bh) + "&thanhtien=" + parseFloat(thanhtien) + "&sang=" + sang + "&trua=" + trua + "&chieu=" + chieu + "&toi=" + toi + "&url=" + convertArray(arr) + "&nghiepvu=ngoaitru_toadichvu&kho=" + $("#kho_dv").val() + "&ngaykb=" + ngaykham_hd;
                         ;
@@ -25066,7 +25058,7 @@
                     if(tuoi=="0"){
                         tuoi=$("#thang").val() + " tháng";
                     }
-                    var namhientai = getDate("11/03/2026").getFullYear();
+                    var namhientai = getDate("06/05/2026").getFullYear();
                     var namsinh = namhientai - parseInt(tuoi);
                     var gioitinh = $("#gioitinh option:selected").text();
                     var diachi = $("#diachi").val();
@@ -25082,7 +25074,7 @@
                         sothebhyt = $("#sobhyt").val();
                     var sophieuxn = $('#sophieuxn').val();
                     var ngaychidinh = convertStr_MysqlDate($("#ngaychidinhxn").val());
-                    var arr = [makhambenh, hoten, namsinh, gioitinh, diachi, chandoan, bschidinh, "1", noitru, sttbenhan, sttdotdieutri, sttdieutri, "0", sothebhyt, sophieuxn, "0", ngaychidinh, tuoi, ngaychidinh, "0", "522072", "-1", sovaovien, 0, 0, $("#icd").val() + "-" + $("#cbicd").val() + "; " + $("#benhphu").val(), 0, $("#mayte").val(), 1];
+                    var arr = [makhambenh, hoten, namsinh, gioitinh, diachi, chandoan, bschidinh, "1", noitru, sttbenhan, sttdotdieutri, sttdieutri, "0", sothebhyt, sophieuxn, "0", ngaychidinh, tuoi, ngaychidinh, "0", "52207", "-1", sovaovien, 0, 0, $("#icd").val() + "-" + $("#cbicd").val() + "; " + $("#benhphu").val(), 0, $("#mayte").val(), 1];
                     var url = "xetnghiem_inketqua_svv?url=" + convertArray(arr);
                     var dvtt = "52207";
                     if ("" == "1") {
@@ -25118,7 +25110,7 @@
                 if(tuoi==0){
                     tuoi=(tuoi == 0) ? $("#thang").val() + " tháng" : tuoi;
                 }
-                var namhientai = getDate("11/03/2026").getFullYear();
+                var namhientai = getDate("06/05/2026").getFullYear();
                 var namsinh = namhientai - parseInt(tuoi);
                 var gioitinh = $("#gioitinh option:selected").text();
                 var diachi = $("#diachi").val();
@@ -25136,7 +25128,7 @@
                 var sovaovien_noi = 0;
                 var sovaovien_dt_noi = 0;
                 var sovaovien = $("#sovaovien").val();
-                var maPhongBan = "522072";
+                var maPhongBan = "52207";
                 var dvtt = "52207";
 
                 //QTI
@@ -25708,7 +25700,7 @@
     $(function () {
         $("#ngaychidinhgoidichvu").datepicker();
         $("#ngaychidinhgoidichvu").datepicker("option", "dateFormat", "dd/mm/yy");
-        $("#ngaychidinhgoidichvu").val("11/03/2026");
+        $("#ngaychidinhgoidichvu").val("06/05/2026");
         $("#giochidinhgoidichvu").val(getCurrentTime("1"));
 
         $("#tab_xn").tabs();
@@ -26059,7 +26051,7 @@
 
 
                     var arr = [matoathuoc, mavattu, encodeURIComponent(tenthuongmai), encodeURIComponent(tengoc), soluong, dongia_bv, dongia_bh, songay, sang, trua,
-                        chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, idtiepnhan, makhambenh, sovaovien, "9716701", "", "9716701", "0"];
+                        chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, idtiepnhan, makhambenh, sovaovien, "9716697", "", "9716697", "0"];
                     var url = "themtoathuocngoaitru_giamtai?dongia_bv=" + parseFloat(dongia_bv) + "&dongia_bh=" + parseFloat(dongia_bh) + "&thanhtien=" + parseFloat(thanhtien) + "&sang=" + sang + "&trua=" + trua + "&chieu=" + chieu + "&toi=" + toi + "&url=" + convertArray(arr) + "&nghiepvu=ngoaitru_toadichvu&kho=" + $("#kho_goidichvu").val() + "&ngaykb=" + ngaykham_hd;
 
                     var maGoiDichVu = $("#danhsachgoidichvu").val();
@@ -26282,7 +26274,7 @@
                             var dongia_bh = "0";
                             var thanhtien = "0";
                             var arr = [matoathuoc, mavattu, tenthuongmai, tengoc, sl, dongia_bv, dongia_bh, songay, sang, trua,
-                                chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, $("#sovaovien").val(), "9716701", ""];
+                                chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, $("#sovaovien").val(), "9716697", ""];
                             arr_tong.push(convertArray(arr));
                         }
                         var url = "loadtoacu_themtoathuocngoaitru";
@@ -26626,7 +26618,7 @@
                             var dongia_bh = "0";
                             var thanhtien = "0";
                             var arr = [matoathuoc, mavattu, tenthuongmai, tengoc, sl, dongia_bv, dongia_bh, songay, sang, trua,
-                                chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, $("#sovaovien").val(), "9716701", ""];
+                                chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt, mabenhnhan, sophieuthanhtoan, $("#sovaovien").val(), "9716697", ""];
                             arr_tong.push(convertArray(arr));
                         }
                         var url = "loadtoacu_themtoathuocngoaitru";
@@ -26931,7 +26923,7 @@
                         var dongia_bh = "0";
                         var thanhtien = "0";
                         var arr = [matoathuoc, mavattu, tenthuongmai, tengoc, sl, dongia_bv, dongia_bh, songay, sang, trua,
-                            chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt_tt, mabenhnhan, sophieuthanhtoan, $("#sovaovien").val(), "9716701", ""];
+                            chieu, toi, dangthuoc, cachdung, thanhtien, cobhyt_tt, mabenhnhan, sophieuthanhtoan, $("#sovaovien").val(), "9716697", ""];
                         arr_tong.push(convertArray(arr));
                     }
                     var url = "loadtoacu_themtoathuocngoaitru";
@@ -27786,12 +27778,12 @@
             ma_loaikcb: ma_loaikcb
         }).done(function (data) {
             if (data.TEN_BENH == null) {
-                $("#ten_benh").val("Cấp thuốc theo Giấy Xác nhận điều trị nội trú của cơ sở khám bệnh, chữa bệnh (" + data.TEN_DONVI + ")" + " cấp giấy xác nhận ngày " + "11/03/2026");
+                $("#ten_benh").val("Cấp thuốc theo Giấy Xác nhận điều trị nội trú của cơ sở khám bệnh, chữa bệnh (" + data.TEN_DONVI + ")" + " cấp giấy xác nhận ngày " + "06/05/2026");
             } else {
                 $("#ten_benh").val(data.TEN_BENH);
             }
             if (data.NGAY_CAP == null) {
-                $("#ngaycapgiay").val("11/03/2026");
+                $("#ngaycapgiay").val("06/05/2026");
             } else {
                 $("#ngaycapgiay").val(data.NGAY_CAP);
             }

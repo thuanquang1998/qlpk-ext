@@ -4,46 +4,73 @@ import { extractFormDataFromDocument } from '../utils/extract-form-data';
 export default defineContentScript({
   matches: ['https://yte-binhdinh.vnpthis.vn/*'],
   main(ctx) {
-    const wrapper = document.createElement('div');
-    wrapper.id = 'vnpthis-qr-button-wrapper';
-    Object.assign(wrapper.style, {
-      position: 'fixed',
-      bottom: '24px',
-      right: '24px',
-      zIndex: '2147483647',
-      fontFamily: 'system-ui, sans-serif',
-    });
+    const isRightDomain = window.location.href.startsWith('https://yte-binhdinh.vnpthis.vn/web_his/');
+    if (!isRightDomain) return;
 
-    const btn = document.createElement('button');
-    btn.textContent = 'PFM Quét HIS';
-    Object.assign(btn.style, {
-      padding: '10px 20px',
-      fontSize: '14px',
-      fontWeight: '600',
-      color: '#fff',
-      backgroundColor: '#0f9a99',
-      border: 'none',
-      borderRadius: '8px',
-      cursor: 'pointer',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-    });
-    btn.addEventListener('mouseenter', () => {
-      btn.style.backgroundColor = '#0a7f7e';
-    });
-    btn.addEventListener('mouseleave', () => {
-      btn.style.backgroundColor = '#0f9a99';
-    });
+    const isReceptionContext = () => {
+      const hashOk = window.location.hash.includes('thongtintiepnhan-tab');
+      const pathOk = window.location.pathname.includes('/web_his/tiepnhanbenhnhan');
+      const tabAnchorOk = !!document.querySelector('a[href="#thongtintiepnhan-tab"]');
+      const tabPaneOk = !!document.querySelector('#thongtintiepnhan-tab');
+      return hashOk || pathOk || tabAnchorOk || tabPaneOk;
+    };
 
-    btn.addEventListener('click', () => {
-      if (!ctx.isValid) return;
-      const formData = extractFormDataFromDocument(document, VNPTHIS_FIELD_CONFIG);
-      browser.runtime.sendMessage({
-        action: 'vnpthis-open-sidepanel',
-        formData,
+    const tryRenderButton = () => {
+      if (!isReceptionContext()) return false;
+      if (document.getElementById('vnpthis-qr-button-wrapper')) return true;
+
+      const wrapper = document.createElement('div');
+      wrapper.id = 'vnpthis-qr-button-wrapper';
+      Object.assign(wrapper.style, {
+        position: 'fixed',
+        bottom: '24px',
+        right: '24px',
+        zIndex: '2147483647',
+        fontFamily: 'system-ui, sans-serif',
       });
-    });
 
-    wrapper.appendChild(btn);
-    document.body.appendChild(wrapper);
+      const btn = document.createElement('button');
+      btn.textContent = 'Tạo QR';
+      Object.assign(btn.style, {
+        padding: '10px 20px',
+        fontSize: '14px',
+        fontWeight: '600',
+        color: '#fff',
+        backgroundColor: '#0f9a99',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+      });
+      btn.addEventListener('mouseenter', () => {
+        btn.style.backgroundColor = '#0a7f7e';
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.backgroundColor = '#0f9a99';
+      });
+
+      btn.addEventListener('click', () => {
+        if (!ctx.isValid) return;
+        const formData = extractFormDataFromDocument(document, VNPTHIS_FIELD_CONFIG);
+        browser.runtime.sendMessage({
+          action: 'vnpthis-open-sidepanel',
+          formData,
+        });
+      });
+
+      wrapper.appendChild(btn);
+      document.body.appendChild(wrapper);
+      return true;
+    };
+
+    if (tryRenderButton()) return;
+    const observer = new MutationObserver(() => {
+      if (tryRenderButton()) observer.disconnect();
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+
+    window.addEventListener('hashchange', () => {
+      void tryRenderButton();
+    });
   },
 });
