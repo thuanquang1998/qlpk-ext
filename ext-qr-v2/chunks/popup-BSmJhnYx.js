@@ -1,0 +1,1 @@
+import{j as o,l as e,R as s,a as t}from"./logo_dts-XQCGibne.js";function a(){return o.jsxs("div",{className:"popup-root",children:[o.jsx("img",{src:e,alt:"DTS logo",className:"popup-logo"}),o.jsx("div",{className:"popup-title",children:"Phòng khám Đa khoa ĐTS"})]})}s.createRoot(document.getElementById("root")).render(o.jsx(t.StrictMode,{children:o.jsx(a,{})}));

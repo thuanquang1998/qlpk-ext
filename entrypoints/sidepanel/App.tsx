@@ -37,6 +37,7 @@ function App() {
   const [clock, setClock] = useState(new Date());
   const [status, setStatus] = useState('Sẵn sàng quét dữ liệu bệnh nhân');
   const [data, setData] = useState<ScannedData>(EMPTY_DATA);
+  const [isPriorityPatient, setIsPriorityPatient] = useState(false);
   const [qrDataUrl, setQrDataUrl] = useState('');
 
   useEffect(() => {
@@ -74,7 +75,12 @@ function App() {
       return;
     }
     try {
-      const escapedJson = toUnicodeEscapedJson(data);
+      const qrPayload = {
+        ...data,
+        QR_DTS: true,
+        is_priority: isPriorityPatient,
+      };
+      const escapedJson = toUnicodeEscapedJson(qrPayload);
       const url = await QRCode.toDataURL(escapedJson, { width: 220, margin: 1 });
       setQrDataUrl(url);
       setStatus('Đã tạo QR (JSON Unicode Escape) từ thông tin quét');
@@ -85,6 +91,7 @@ function App() {
 
   function resetAll() {
     setData(EMPTY_DATA);
+    setIsPriorityPatient(false);
     setQrDataUrl('');
     setStatus('Đã reset thông tin và QR');
   }
@@ -160,6 +167,17 @@ function App() {
 
       <section className="card">
         <div className="card-title">QR</div>
+        <div className="action-row" style={{ gridTemplateColumns: '1fr' }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: '#355758', fontWeight: 600 }}>
+            <input
+              type="checkbox"
+              checked={isPriorityPatient}
+              onChange={(event) => setIsPriorityPatient(event.target.checked)}
+              style={{ width: 14, height: 14 }}
+            />
+            Bệnh nhân ưu tiên
+          </label>
+        </div>
         <div className="action-row">
           <button className="btn btn-primary" onClick={() => void createQr()}>
             Tạo QR
