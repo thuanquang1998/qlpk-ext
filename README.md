@@ -1,12 +1,25 @@
 # PFM Reception Extension
 
-Extension hỗ trợ lễ tân:
-- Detect dữ liệu HIS từ trang VNPT-HIS
-- Hiển thị thông tin bệnh nhân trên sidepanel UI
-- Tạo QR từ thông tin quét được
-- Reset thông tin và in QR
+Extension hỗ trợ lễ tân ở VNPT-HIS.
+Tai lieu chuan ve flow va rang buoc:
 
-## Cấu hình
+- [PFM Technical Specification](/Users/thuanluuquang/Documents/pfm-dts/docs/OVERVIEW.md)
+
+## Current scope
+
+- Detect du lieu tu trang tiep nhan VNPT-HIS.
+- Hien thi thong tin benh nhan tren sidepanel UI.
+- Tao QR tu form da quet.
+- Reset thong tin va in QR.
+- Ghi payload tam vao session storage, khong persist PII vao localStorage.
+
+## Current limitation
+
+- Chua goi backend `POST /api/v1/patients`.
+- QR hien tai la payload JSON co `QR_DTS: true`, khong phai QR business URI backend scan.
+- Chi hoat dong trong context reception da whitelist.
+
+## Configuration
 
 Storage key:
 - `pfm-extension-settings`
@@ -20,5 +33,3 @@ Giá trị mặc định:
   "clinicTitle": "Phòng khám PFM"
 }
 ```
-
-Phiên bản hiện tại chưa gọi API backend; tập trung vào quét HIS + tạo/in QR.
